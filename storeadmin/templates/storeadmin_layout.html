@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="Askbootstrap" />
+      <meta name="author" content="Askbootstrap" />
+      <title>Osahan Eat - Online Food Ordering Website HTML Template</title>
+      <link rel="icon" type="image/png" href="{%static 'admin/img/favicon.png'%}">
+      <link href="{%static 'admin/vendor/icons/feather.css'%}" rel="stylesheet" type="text/css">
+      <link href="{%static 'admin/vendor/fontawesome/css/fontawesome.min.css'%}" rel="stylesheet" type="text/css">
+      <link href="{%static 'admin/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+      <link href="{%static 'admin/css/styles.css'%}" rel="stylesheet" />
+      <link href="{%static 'admin/vendor/dataTables/dataTables/css/dataTables.bootstrap4.min.css'%}" rel="stylesheet">
+   </head>
+   <body class="sb-nav-fixed">
+      <nav class="sb-topnav navbar navbar-expand navbar-light bg-white shadow-sm">
+         <a class="navbar-brand" href="index.html"><img alt="logo" src="{%static 'admin/img/logo.png'%}"></a>
+         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+         </form>
+         <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow ml-1 osahan-profile-dropdown">
+               <a class="nav-link dropdown-toggle pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <img class="img-profile rounded-circle" src="{%static 'admin/img/user/1.png'%}">
+               </a>
+               <div class="dropdown-menu dropdown-menu-right shadow-sm">
+                  <div class="p-3 d-flex align-items-center">
+                     <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="img/user/1.png" alt="">
+                        <div class="status-indicator bg-success"></div>
+                     </div>
+                     <div class="font-weight-bold">
+                        <div class="text-truncate">Gurdeep Osahan</div>
+                        <div class="small text-gray-500">Restaurants Owner</div>
+                     </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="my-profile.html"><i class="feather-edit"></i> My Account</a>
+                  <a class="dropdown-item" href="my-profile.html"><i class="feather-settings"></i> Account Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="https://askbootstrap.com/item/osahan-ads-listing-template/"><i class="feather-log-out"></i> Logout</a>
+               </div>
+            </li>
+         </ul>
+      </nav>
+      <div id="layoutSidenav">
+         <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+               <div class="sb-sidenav-menu">
+                  <div class="nav">
+                     <div class="sb-sidenav-menu-heading"></div>
+                     <a class="nav-link" href="{% url 'storeadmin:store_home'%}">
+                        <div class="sb-nav-link-icon"><i class="feather-home"></i></div>
+                        Dashboard
+                     </a>
+                     <a class="nav-link" href="{% url 'storeadmin:bookings'%}">
+                        <div class="sb-nav-link-icon"><i class="feather-calendar"></i></div>
+                        Bookings 
+                     </a>
+                      <a class="nav-link" href="{% url 'storeadmin:pickups'%}">
+                        <div class="sb-nav-link-icon"><i class="feather-message-square"></i></div>
+                        Pickups
+                     </a>
+                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutss" aria-expanded="false" aria-controls="collapseLayoutss">
+                        <div class="sb-nav-link-icon"><i class="feather-list"></i></div>
+                        Estimate
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                     </a>
+                     <div class="collapse" id="collapseLayoutss" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                           <a class="nav-link" href="{% url 'storeadmin:estimate'%}">Add Estimate</a>
+                           <a class="nav-link" href="{% url 'storeadmin:estimate_status'%}">Estimate Status</a>
+                        </nav>
+                     </div>
+                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutssa" aria-expanded="false" aria-controls="collapseLayoutssa">
+                        <div class="sb-nav-link-icon"><i class="feather-list"></i></div>
+                        Completed
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                     </a>
+                     <div class="collapse" id="collapseLayoutssa" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                           <a class="nav-link" href="{% url 'storeadmin:declined_delivery'%}">Add Declined Delivery</a>
+                           <a class="nav-link" href="{% url 'storeadmin:repaired_delivery'%}">Add Repaired Delivery</a>
+                           <a class="nav-link" href="{% url 'storeadmin:delivery_status'%}">Delivery Status</a>
+                        </nav>
+                     </div>
+                     <a class="nav-link" href="{% url 'storeadmin:delivery'%}">
+                        <div class="sb-nav-link-icon"><i class="feather-heart"></i></div>
+                        Delivery
+                     </a>
+                     <a class="nav-link" href="{% url 'storeadmin:payment'%}">
+                        <div class="sb-nav-link-icon"><i class="feather-plus-circle"></i></div>
+                        Payments
+                     </a>
+                  </div>
+               </div>
+            </nav>
+         </div>
+{%block content%}
+
+{%endblock%}
+         <footer class="py-4 bg-light mt-auto">
+               <div class="container-fluid">
+                  <div class="d-flex align-items-center justify-content-between small">
+                     <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                     <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
+      </div>
+      <!--Editing prompt-->
+      <div class="modal fade" id="edit_booking" tabindex="-1" role="dialog" aria-labelledby="edit_bookingLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="edit_bookingLabel">Edit Booking</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group">
+                     <label>Restaurant Name</label>
+                     <input type="text" class="form-control" value="Restaurant Name">
+                  </div>
+                  <div class="form-group">
+                     <label>Client Name</label>
+                     <input type="text" class="form-control" value="Mark Twain">
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>Date</label>
+                           <input type="text" class="form-control" value="5 November 2020">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>Time</label>
+                           <input type="text" class="form-control" value="08.30pm">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>Peolple</label>
+                           <input type="text" class="form-control" value="2">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <a class="btn btn-primary" href="login.html">Save</a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+<!--Review Reply prompt--->
+      <div class="modal fade" id="edit_booking" tabindex="-1" role="dialog" aria-labelledby="edit_bookingLabel" aria-hidden="true">
+         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="edit_bookingLabel">Reply to review</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group m-0">
+                     <textarea cols="60" rows="6" class="form-control" spellcheck="false"></textarea>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <a class="btn btn-primary btn-block" href="#">Reply</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="{%static 'admin/vendor/jquery/jquery.min.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/vendor/fontawesome/js/all.min.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/vendor/bootstrap/js/bootstrap.bundle.min.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/js/scripts.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="../../../../cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js'%}" crossorigin="anonymous" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/assets/demo/chart-area-demo.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/assets/demo/chart-bar-demo.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/assets/demo/chart-pie-demo.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/vendor/dataTables/dataTables/js/jquery.dataTables.min.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/vendor/dataTables/dataTables/js/dataTables.bootstrap.min.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/assets/demo/datatables-demo.js'%}" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="{%static 'admin/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="9f0a9accc1d5ab109b296779-|49" defer=""></script>
+      <!-- <script defer src="{%static 'admin/static.cloudflareinsights.com/beacon.min.js'%}"></script> -->
+
+   </body>
+</html>

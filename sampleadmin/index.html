@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="Askbootstrap" />
+      <meta name="author" content="Askbootstrap" />
+      <title>Osahan Eat - Online Food Ordering Website HTML Template</title>
+      <link rel="icon" type="image/png" href="img/favicon.png">
+      <link href="vendor/icons/feather.css" rel="stylesheet" type="text/css">
+      <link href="vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet" />
+      <link href="vendor/dataTables/dataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+   </head>
+   <body class="sb-nav-fixed">
+      <nav class="sb-topnav navbar navbar-expand navbar-light bg-white shadow-sm">
+         <a class="navbar-brand" href="index.html"><img alt="logo" src="img/logo.png"></a>
+         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+           
+         </form>
+         <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow d-sm-none">
+               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="feather-search mr-2"></i>
+               </a>
+               <div class="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
+                  <form class="form-inline mr-auto w-100 navbar-search">
+                     <div class="input-group">
+                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                           <button class="btn" type="button">
+                           <i class="feather-search"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </li>
+           
+            <li class="nav-item dropdown no-arrow ml-1 osahan-profile-dropdown">
+               <a class="nav-link dropdown-toggle pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <img class="img-profile rounded-circle" src="img/user/1.png">
+               </a>
+               <div class="dropdown-menu dropdown-menu-right shadow-sm">
+                  <div class="p-3 d-flex align-items-center">
+                     <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="img/user/1.png" alt="">
+                        <div class="status-indicator bg-success"></div>
+                     </div>
+                     <div class="font-weight-bold">
+                        <div class="text-truncate">Gurdeep Osahan</div>
+                        <div class="small text-gray-500">Restaurants Owner</div>
+                     </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="my-profile.html"><i class="feather-edit"></i> My Account</a>
+                  <a class="dropdown-item" href="my-profile.html"><i class="feather-settings"></i> Account Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="https://askbootstrap.com/item/osahan-ads-listing-template/"><i class="feather-log-out"></i> Logout</a>
+               </div>
+            </li>
+         </ul>
+      </nav>
+      <div id="layoutSidenav">
+         <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+               <div class="sb-sidenav-menu">
+                  <div class="nav">
+                     <div class="sb-sidenav-menu-heading"></div>
+                     <a class="nav-link" href="index.html">
+                        <div class="sb-nav-link-icon"><i class="feather-home"></i></div>
+                        Dashboard
+                     </a>
+                     <a class="nav-link" href="bookings.html">
+                        <div class="sb-nav-link-icon"><i class="feather-calendar"></i></div>
+                        Bookings <span class="badge badge-pill ml-2 badge-primary">6 New</span>
+                     </a>
+                      <a class="nav-link" href="messages.html">
+                        <div class="sb-nav-link-icon"><i class="feather-message-square"></i></div>
+                        Pickups
+                     </a>
+                     <a class="nav-link" href="reviews.html">
+                        <div class="sb-nav-link-icon"><i class="feather-star"></i></div>
+                        Estimate
+                     </a>
+                     <a class="nav-link" href="bookmarks.html">
+                        <div class="sb-nav-link-icon"><i class="feather-heart"></i></div>
+                        Delivery
+                     </a>
+                     <a class="nav-link" href="add-listing.html">
+                        <div class="sb-nav-link-icon"><i class="feather-plus-circle"></i></div>
+                        Status
+                     </a>
+                  </div>
+               </div>
+            </nav>
+         </div>
+         <div id="layoutSidenav_content">
+            <main>
+               <div class="container-fluid">
+                  <h1 class="mt-4">Dashboard</h1>
+                  <ol class="breadcrumb mb-4">
+                     <li class="breadcrumb-item active">Dashboard</li>
+                  </ol>
+                  <div class="row">
+                     
+                     <div class="col-xl-6 col-md-6">
+                        <div class="card bg-warning text-white mb-4">
+                           <div class="card-body">10 New Bookings!</div>
+                           <div class="card-footer d-flex align-items-center justify-content-between">
+                              <a class="small text-white stretched-link" href="bookings.html">View Details</a>
+                              <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-6 col-md-6">
+                        <div class="card bg-success text-white mb-4">
+                           <div class="card-body">11 New Reviews!</div>
+                           <div class="card-footer d-flex align-items-center justify-content-between">
+                              <a class="small text-white stretched-link" href="reviews.html">View Details</a>
+                              <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                 
+                  <div class="card mb-4">
+                     <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>
+                        RECENT 10 ORDER
+                     </div>
+                     <div class="card-body">
+                        <div class="table-responsive">
+                           <table class="table" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                 <tr class="text-uppercase">
+                                    <th>User</th>
+                                    <th>User Name</th>
+                                    <th>Restaurant</th>
+                                    <th>Status</th>
+                                    <th>Ordered on</th>
+                                    <th>Total</th>
+                                    <th>Quantity</th>
+                                    <th>Action</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/1.png"></td>
+                                    <td> Rhona Davidson	</td>
+                                    <td>Metro Resto</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-success btn-round">delivered</button></td>
+                                    <td>Sat, Jul 11, 2020 1:38 AM</td>
+                                    <td>$262.49</td>
+                                    <td>4</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/2.png"></td>
+                                    <td> Herrod Chandler	</td>
+                                    <td>Metro Resto</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-danger btn-round">cancel</button></td>
+                                    <td>Fri, Jul 10, 2020 4:55 PM</td>
+                                    <td>$170.77</td>
+                                    <td>5</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/3.png"></td>
+                                    <td> Airi Satou	</td>
+                                    <td>Metro Resto</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-success btn-round">delivered</button></td>
+                                    <td>Fri, Jul 10, 2020 3:48 PM</td>
+                                    <td>$26.78</td>
+                                    <td>2</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/4.png"></td>
+                                    <td> Brielle Williamson	</td>
+                                    <td>The Square restaurants</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-primary btn-round">created</button></td>
+                                    <td>Fri, Jul 10, 2020 2:24 PM</td>
+                                    <td>$81.23</td>
+                                    <td>2</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/5.png"></td>
+                                    <td> Cedric Kelly	</td>
+                                    <td>Metro Resto</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-success btn-round">delivered</button></td>
+                                    <td>Fri, Jul 10, 2020 11:45 AM</td>
+                                    <td>$1578.00</td>
+                                    <td>1</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/6.png"></td>
+                                    <td> Ashton Cox	</td>
+                                    <td>The Square restaurants</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-primary btn-round">created</button></td>
+                                    <td>Fri, Jul 10, 2020 11:37 AM</td>
+                                    <td>$238.53</td>
+                                    <td>4</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/1.png"></td>
+                                    <td> Garrett Winters	</td>
+                                    <td>Metro Resto</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-danger btn-round">rejected</button></td>
+                                    <td>Thu, Jul 9, 2020 3:54 PM</td>
+                                    <td>$107.85</td>
+                                    <td>2</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/2.png"></td>
+                                    <td> Tiger Nixon	</td>
+                                    <td>The Square restaurants</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-danger btn-round">rejected</button></td>
+                                    <td>Thu, Jul 9, 2020 3:19 PM</td>
+                                    <td>$83.65</td>
+                                    <td>2</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/3.png"></td>
+                                    <td> AMITKUMAR CHAUHAN</td>
+                                    <td>Jassi de Parathe</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-primary btn-round">created</button></td>
+                                    <td>Thu, Jul 9, 2020 2:28 PM</td>
+                                    <td>$46.62</td>
+                                    <td>2</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td><img class="img-profile rounded-circle" src="img/user/4.png"></td>
+                                    <td> Umed Ibodulloev</td>
+                                    <td>Metro Resto</td>
+                                    <td><button disabled="" type="button" class="btn btn-sm btn-success btn-round">delivered</button></td>
+                                    <td>Thu, Jul 9, 2020 1:26 PM</td>
+                                    <td>$66.71</td>
+                                    <td>1</td>
+                                    <td><a href="edit-order.html" class="btn btn-primary btn-sm">View</a></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+               <div class="container-fluid">
+                  <div class="d-flex align-items-center justify-content-between small">
+                     <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                     <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
+      </div>
+      <script src="vendor/jquery/jquery.min.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="vendor/fontawesome/js/all.min.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="js/scripts.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="../../../../cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="assets/demo/chart-area-demo.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="assets/demo/chart-bar-demo.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="assets/demo/chart-pie-demo.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="vendor/dataTables/dataTables/js/jquery.dataTables.min.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="vendor/dataTables/dataTables/js/dataTables.bootstrap.min.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="assets/demo/datatables-demo.js" type="9f0a9accc1d5ab109b296779-text/javascript"></script>
+      <script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9f0a9accc1d5ab109b296779-|49" defer=""></script><script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"612db98f0e1bc331","r":1,"version":"2021.1.1","si":10}'></script>
+   </body>
+</html>

@@ -36,15 +36,35 @@
 </button>
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
 <ul class="navbar-nav ml-auto">
-
 <li class="nav-item active">
 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
 </li>
-
 <li class="nav-item">
-<a class="nav-link" href="listing.html">Stores <span class="sr-only">(current)</span></a>
+<a class="nav-link" href="offers.html"><i class="icofont-sale-discount"></i> Offers <span class="badge badge-warning">New</span></a>
 </li>
-
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Restaurants
+</a>
+<div class="dropdown-menu dropdown-menu-right shadow-sm border-0">
+<a class="dropdown-item" href="listing.html">Listing</a>
+<a class="dropdown-item" href="detail.html">Detail + Cart</a>
+<a class="dropdown-item" href="checkout.html">Checkout</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Pages
+</a>
+<div class="dropdown-menu dropdown-menu-right shadow-sm border-0">
+<a class="dropdown-item" href="track-order.html">Track Order</a>
+<a class="dropdown-item" href="invoice.html">Invoice</a>
+<a class="dropdown-item" href="login.html">Login</a>
+<a class="dropdown-item" href="register.html">Register</a>
+<a class="dropdown-item" href="404.html">404</a>
+<a class="dropdown-item" href="extra.html">Extra :)</a>
+</div>
+</li>
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <img alt="Generic placeholder image" src="img/user/4.png" class="nav-osahan-pic rounded-pill"> My Account
@@ -59,8 +79,8 @@
 </li>
 <li class="nav-item dropdown dropdown-cart">
 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<i class="fas fa-wrench"></i> Service Status
-<!-- <span class="badge badge-success">5</span> -->
+<i class="fas fa-shopping-basket"></i> Cart
+<span class="badge badge-success">5</span>
 </a>
 <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
 <div class="dropdown-cart-top-header p-4">
@@ -95,21 +115,29 @@
 <div class="row d-flex align-items-center py-lg-4">
 <div class="col-lg-8 mx-auto">
 <div class="homepage-search-title text-center">
-<h1 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span class="font-weight-bold">Discover the best services available
+<h1 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span class="font-weight-bold">Discover the best food & drinks in India 🇮🇳
 </span></h1>
-<h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Lists of top Stores, Repairs, Maintanence, and Services based on trends</h5>
+<h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Lists of top restaurants, cafes, pubs, and bars in Melbourne, based on trends</h5>
 </div>
 <div class="homepage-search-form">
 <form class="form-noborder">
 <div class="form-row">
-<div class="col-lg-4 col-md-4 col-sm-12 form-group">
+<div class="col-lg-3 col-md-3 col-sm-12 form-group">
 <div class="location-dropdown">
-<input type="text" placeholder="Location" class="form-control form-control-lg">
+<i class="icofont-location-arrow"></i>
+<select class="custom-select form-control-lg">
+<option> Quick Searches </option>
+<option> Breakfast </option>
+<option> Lunch </option>
+<option> Dinner </option>
+<option> Cafés </option>
+<option> Delivery </option>
+</select>
 </div>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-<input type="text" placeholder="Enter appliances,storename.." class="form-control form-control-lg">
-<!-- <a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a> -->
+<div class="col-lg-7 col-md-7 col-sm-12 form-group">
+<input type="text" placeholder="Enter your delivery location" class="form-control form-control-lg">
+<a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a>
 </div>
 <div class="col-lg-2 col-md-2 col-sm-12 form-group">
 <a href="listing.html" class="btn btn-primary btn-block btn-lg btn-gradient">Search</a>
@@ -118,7 +146,7 @@
 </div>
 </form>
 </div>
-<h6 class="mt-4 text-shadow text-white font-weight-normal">E.g. TVs, Air Conditioner, Fridge, Trivandrum, Store names...</h6>
+<h6 class="mt-4 text-shadow text-white font-weight-normal">E.g. Beverages, Pizzas, Chinese, Bakery, Indian...</h6>
 <div class="owl-carousel owl-carousel-category owl-theme">
 <div class="item">
 <div class="osahan-category-item">
@@ -450,7 +478,30 @@ Subscribe
 </div>
 </div>
 </section>
-
+<section class="footer-bottom-search pt-5 pb-5 bg-white">
+<div class="container">
+<div class="row">
+<div class="col-xl-12">
+<p class="text-black">POPULAR COUNTRIES</p>
+<div class="search-links">
+<a href="#">Australia</a> | <a href="#">Brasil</a> | <a href="#">Canada</a> | <a href="#">Chile</a> | <a href="#">Czech Republic</a> | <a href="#">India</a> | <a href="#">Indonesia</a> | <a href="#">Ireland</a> | <a href="#">New Zealand</a> | <a href="#">United Kingdom</a> | <a href="#">Turkey</a> | <a href="#">Philippines</a> | <a href="#">Sri Lanka</a> | <a href="#">Australia</a> | <a href="#">Brasil</a> | <a href="#">Canada</a> | <a href="#">Chile</a> | <a href="#">Czech Republic</a> | <a href="#">India</a> | <a href="#">Indonesia</a> | <a href="#">Ireland</a> | <a href="#">New Zealand</a> | <a href="#">United Kingdom</a> | <a href="#">Turkey</a> | <a href="#">Philippines</a> | <a href="#">Sri Lanka</a><a href="#">Australia</a> | <a href="#">Brasil</a> | <a href="#">Canada</a> | <a href="#">Chile</a> | <a href="#">Czech Republic</a> | <a href="#">India</a> | <a href="#">Indonesia</a> | <a href="#">Ireland</a> | <a href="#">New Zealand</a> | <a href="#">United Kingdom</a> | <a href="#">Turkey</a> | <a href="#">Philippines</a> | <a href="#">Sri Lanka</a> | <a href="#">Australia</a> | <a href="#">Brasil</a> | <a href="#">Canada</a> | <a href="#">Chile</a> | <a href="#">Czech Republic</a> | <a href="#">India</a> | <a href="#">Indonesia</a> | <a href="#">Ireland</a> | <a href="#">New Zealand</a> | <a href="#">United Kingdom</a> | <a href="#">Turkey</a> | <a href="#">Philippines</a> | <a href="#">Sri Lanka</a>
+</div>
+<p class="mt-4 text-black">POPULAR FOOD</p>
+<div class="search-links">
+<a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South Indian</a> | <a href="#">Punjabi Food</a> | <a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South Indian</a> | <a href="#">Punjabi Food</a><a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South Indian</a> | <a href="#">Punjabi Food</a> | <a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South Indian</a> | <a href="#">Punjabi Food</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="pt-4 pb-4 text-center">
+<div class="container">
+<p class="mt-0 mb-0">© Copyright 2020 Osahan Eat. All Rights Reserved</p>
+<small class="mt-0 mb-0"> Made with <i class="fas fa-heart heart-icon text-danger"></i> by
+<a class="text-danger" target="_blank" href="https://www.instagram.com/iamgurdeeposahan/">Gurdeep Osahan</a> - <a class="text-primary" target="_blank" href="https://askbootstrap.com/">Ask Bootstrap</a>
+</small>
+</div>
+</footer>
 
 <script src="vendor/jquery/jquery-3.3.1.slim.min.js" type="3c55fa33cea05a8f597cf9e4-text/javascript"></script>
 
