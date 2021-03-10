@@ -1,0 +1,104 @@
+{%extends 'store_admin/storeadmin_layout.html'%}
+    {% load static %}
+    {% load event_tags %}
+
+{%block content%}
+         <div id="layoutSidenav_content">
+            <main>
+               <div class="container-fluid">
+                  <h1 class="mt-4">Pickups</h1>
+                 
+                  <div class="row">
+                     <div class="col-xl-12">
+                        {% for i in pickup_det %}
+                        {% for j in booking_det %}
+                        
+                        
+                        {% if i.booking_id|int == j.booking_id|int %}
+                        {% for k in appliance_det %}
+                        {% for l in address_det %}
+   
+                        {% if j.appliance_id|int == k.appliance_id|int and j.address_id|int == l.address_id|int %}
+                        <div class="card mb-4 order-list">
+                           <div class="gold-members p-4">
+                              <a href="#">
+                              </a>
+                              <div class="media">
+                                 <a href="#">
+                                 <!-- <img class="mr-4" src="img/3.jpg" alt="Generic placeholder image"> -->
+                                 </a>
+                                 <div class="media-body">
+                                    <a href="#">
+                                    <!-- <span class="float-right text-success">Delivered on Mon, Nov 12, 7:18 PM <i class="feather-check-circle text-success"></i></span> -->
+                                    </a>
+                                    <h6 class="mb-3"><a href="#">
+                                       </a><a href="https://askbootstrap.com/item/osahan-grocery-bootstrap4-responsive-light-template/" class="text-dark">{{l.name}}
+                                       </a>
+                                    </h6>
+                                    <p class="text-black-50 mb-1"><i class="feather-map-pin"></i> {{l.address}}</p>
+                                    <p class="text-black-50 mb-3"><i class="feather-list"></i> ORDER #{{j.booking_id}} <i class="feather-clock ml-2"></i> {{i.pickup_date}}</p>
+                                    <p class="text-dark">{{k.appliance_name}}</p>
+                                    <hr>
+                                    <div class="float-right">
+
+                                       {% if i.pickup_status == "pending" %}
+                                       <a href="#0" class="btn btn-sm btn-info" data-toggle="modal" data-target="#confirm{{i.pickup_id}}"><i class="feather-edit"></i> Confirm Pickup</a>
+                                       {% else %}
+                                       <span class="bg-warning px-2 py-1 rounded ml-1"> PickUp Successful </span>
+                                       {% endif %}
+
+                                       &nbsp; &nbsp;<a href="#0" class="btn btn-sm btn-danger"><i class="feather-trash"></i> Cancel</a>
+                                    </div>
+                                    <p class="mb-0 text-dark text-dark pt-2"><span class="text-dark font-weight-bold"> Total Paid:</span> $300</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <!------------------------------------->
+                        <div class="modal fade" id="confirm{{i.pickup_id}}" tabindex="-1" role="dialog" aria-labelledby="edit_bookingLabel" aria-hidden="true">
+                           <form name="form" method="post" action="{% url 'storeadmin:pickup_confirm' i.pickup_id %}" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title" id="edit_bookingLabel">Confirm Pickup</h5>
+                                       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">×</span>
+                                       </button>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                      
+                                       <button class="btn pl-1 pr-1 btn-lg btn-google font-weight-normal text-white btn-block text-uppercase" style="background-color: green" type="submit"> Yes </button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>      
+                        {% endif %}
+
+                        {% endfor %}
+                        {% endfor %}
+                        {% endif %}
+                         
+                        {% endfor %}
+                        {% endfor %}
+                        <nav aria-label="Page navigation example">
+                           <ul class="pagination pagination-sm mb-4 justify-content-center">
+                              <li class="page-item disabled">
+                                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                 <a class="page-link" href="#">Next</a>
+                              </li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </main>
+            {%endblock%}

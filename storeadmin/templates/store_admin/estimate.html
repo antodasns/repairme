@@ -1,4 +1,4 @@
-{%extends 'storeadmin_layout.html'%}
+{%extends 'store_admin/storeadmin_layout.html'%}
     {% load static %}
 
 {%block content%}
@@ -101,4 +101,38 @@
                   </div>
                </div>
             </main>
+      <div class="modal fade" id="estimate" tabindex="-1" role="dialog" aria-labelledby="edit_bookingLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="edit_bookingLabel">Estimate</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group">
+                     <label>Complaint details</label>
+                     <textarea class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                     <label>SpareParts details</label>
+                     <textarea class="form-control"></textarea>
+                  </div>
+                  
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>Total Repair Amount</label>
+                           <input type="text" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <a class="btn btn-primary" href="login.html">Save</a>
+               </div>
+            </div>
+         </div>
+      </div>
            {%endblock%}

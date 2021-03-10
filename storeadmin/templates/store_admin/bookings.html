@@ -1,0 +1,95 @@
+{%extends 'store_admin/storeadmin_layout.html'%}
+    {% load static %}
+{% load event_tags %}
+{%block content%}
+         <div id="layoutSidenav_content">
+            <main>
+               <div class="container-fluid">
+                  <h1 class="mt-4">Bookings</h1>
+                  
+                  <div class="row">
+                     <div class="col-xl-12">
+                        {% for x in booking_det %}
+                        {% for y in appliance_det %}
+                        {% if x.appliance_id|int == y.appliance_id|int %}
+                         
+                        <div class="card mb-4 order-list">
+                           <div class="gold-members p-4">
+                              <a href="#">
+                              </a>
+                              <div class="media">
+                                <!--  <a href="#">
+                                 <img class="mr-4" src="img/3.jpg" alt="Generic placeholder image">
+                                 </a> -->
+                                 <div class="media-body">
+                                    <a href="#">
+                                    <!-- <span class="float-right text-success">Mon, Nov 12, 7:18 PM <i class="feather-clock text-success"></i></span> -->
+                                    </a>
+                                    <h6 class="mb-1">{{y.appliance_name}}</h6>
+                                    <p class="text-black mb-3"><i class="feather-user"></i> {{y.appliance_brand}}</p>
+                                    <p class="text-black-50">{{y.appliance_description}}</p>
+                                    <hr>
+                                    <div class="float-right">
+
+                                       {% if x.pickupdateconfirm == "yes" %}
+                                       <span class="bg-warning px-2 py-1 rounded ml-1"> Ready For Pickup </span>
+                                       {% else %}
+                                       <a href="#0" class="btn btn-sm btn-success" data-toggle="modal" data-target="#pickup{{x.booking_id}}"><i class="fa fa-fw fa-reply"></i> Pickup Date</a>
+                                       {% endif %}
+                                       &nbsp; &nbsp;<a href="#0" class="btn btn-sm btn-danger"><i class="feather-trash"></i> Cancel</a>
+                                    </div>
+                                    <!-- <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Rate</span> <span class="bg-warning px-2 py-1 rounded ml-1"> 8.5 </span></p> -->
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+               <!----------------------------------------->
+                        <div class="modal fade" id="pickup{{x.booking_id}}" tabindex="-1" role="dialog" aria-labelledby="edit_bookingLabel" aria-hidden="true">
+                           <form name="form" method="post" action="{% url 'storeadmin:pickup_date' x.booking_id %}" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title" id="edit_bookingLabel">PickUp Date</h5>
+                                       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">×</span>
+                                       </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="form-group">
+                                          <label>Pickup Date</label>
+                                          <input type="date" class="form-control" name="pickupdate">
+                                       </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button class="btn btn-primary" style="background-color: green" type="submit"> Submit </button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>       
+
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        <nav aria-label="Page navigation example">
+                           <ul class="pagination pagination-sm mb-4 justify-content-center">
+                              <li class="page-item disabled">
+                                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                 <a class="page-link" href="#">Next</a>
+                              </li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </main>
+
+
+      
+            {%endblock%}

@@ -20,6 +20,8 @@ class Booking(models.Model):
 	store_id=models.CharField(max_length=20)
 	user_id=models.CharField(max_length=20)
 	appliance_id=models.CharField(max_length=20)
+	address_id=models.CharField(max_length=20)
+	pickupdateconfirm=models.CharField(max_length=20)
 	class Meta:
 		verbose_name_plural="Booking"
 	def __str__(self):
@@ -35,3 +37,26 @@ class Appliance(models.Model):
 		verbose_name_plural="Appliance"
 	def __str__(self):
 		return str(self.appliance_id)
+
+class Address(models.Model):
+	address_id=models.AutoField(primary_key=True)
+	name=models.CharField(max_length=20)
+	address=models.TextField()
+	phone=models.CharField(max_length=20)
+	landmark=models.CharField(max_length=20)
+	class Meta:
+		verbose_name_plural="Address"
+	def __str__(self):
+		return str(self.address_id)
+
+class PickUp(models.Model):
+	pickup_id=models.AutoField(primary_key=True)
+	booking_id=models.CharField(max_length=20)
+	store_id=models.CharField(max_length=20)
+	user_id=models.CharField(max_length=20)
+	pickup_status=models.CharField(max_length=20)
+	pickup_date=models.CharField(max_length=20)
+	class Meta:
+		verbose_name_plural="PickUp"
+	def __str__(self):
+		return str(self.pickup_id)
