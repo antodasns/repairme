@@ -55,8 +55,36 @@ class PickUp(models.Model):
 	store_id=models.CharField(max_length=20)
 	user_id=models.CharField(max_length=20)
 	pickup_status=models.CharField(max_length=20)
+	estimategivenconfirm=models.CharField(max_length=20)
 	pickup_date=models.CharField(max_length=20)
 	class Meta:
 		verbose_name_plural="PickUp"
 	def __str__(self):
 		return str(self.pickup_id)
+
+class Estimate(models.Model):
+	estimate_id=models.AutoField(primary_key=True)
+	booking_id=models.CharField(max_length=20)
+	store_id=models.CharField(max_length=20)
+	user_id=models.CharField(max_length=20)
+	parts=models.TextField()
+	complaints=models.TextField()
+	estimate_price=models.CharField(max_length=20)
+	estimate_status=models.CharField(max_length=20)
+	delivery_status=models.CharField(max_length=20)
+	class Meta:
+		verbose_name_plural="Estimate"
+	def __str__(self):
+		return str(self.estimate_id)
+
+class Delivery(models.Model):
+	delivery_id=models.AutoField(primary_key=True)
+	booking_id=models.CharField(max_length=20)
+	store_id=models.CharField(max_length=20)
+	user_id=models.CharField(max_length=20)
+	delivery_status=models.CharField(max_length=20)
+	delivery_date=models.CharField(max_length=20)
+	class Meta:
+		verbose_name_plural="Delivery"
+	def __str__(self):
+		return str(self.delivery_id)

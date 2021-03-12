@@ -1,89 +1,83 @@
 {%extends 'store_admin/storeadmin_layout.html'%}
     {% load static %}
-
+{% load event_tags %}
 {%block content%}
          <div id="layoutSidenav_content">
             <main>
                <div class="container-fluid">
-                  <h1 class="mt-4">Estimate</h1>
-                 
+                  <h1 class="mt-4">Repaired Delivery</h1>
+                  
                   <div class="row">
                      <div class="col-xl-12">
+                        {% for x in estimate_det %}
+                        {% for y in booking_det %}
+                        {% if x.booking_id|int == y.booking_id|int %}
+
+                        {% for z in appliance_det %}
+                        {% if y.appliance_id|int == z.appliance_id|int %}
                         <div class="card mb-4 order-list">
                            <div class="gold-members p-4">
                               <a href="#">
                               </a>
                               <div class="media">
-                                 <a href="#">
+                                <!--  <a href="#">
                                  <img class="mr-4" src="img/3.jpg" alt="Generic placeholder image">
-                                 </a>
+                                 </a> -->
                                  <div class="media-body">
                                     <a href="#">
-                                    <span class="float-right text-success">Mon, Nov 12, 7:18 PM <i class="feather-clock text-success"></i></span>
+                                    <!-- <span class="float-right text-success">Mon, Nov 12, 7:18 PM <i class="feather-clock text-success"></i></span> -->
                                     </a>
-                                    <h6 class="mb-1">La Monnalisa</h6>
-                                    <p class="text-black mb-3"><i class="feather-user"></i> by M.Twain</p>
-                                    <p class="text-black-50">Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                                    <h6 class="mb-1">{{z.appliance_name}}</h6>
+                                    <p class="text-black mb-3"><i class="feather-user"></i> {{z.appliance_brand}}</p>
+                                    <p class="text-black-50">{{z.appliance_description}}</p>
                                     <hr>
                                     <div class="float-right">
-                                       <a href="#0" class="btn btn-sm btn-success" data-toggle="modal" data-target="#edit_booking"><i class="fa fa-fw fa-reply"></i> Reply to this review</a>
-                                       <a href="#0" class="btn btn-sm btn-danger"><i class="feather-trash"></i> Cancel</a>
+                                       {% if x.delivery_status == "delivered" %}
+                                       <span class="bg-warning px-2 py-1 rounded ml-1"> Item Delivered </span>
+                                       {% elif x.delivery_status == "pending" %}
+                                       <span class="bg-warning px-2 py-1 rounded ml-1"> Delivery Pending </span>
+                                       {% else %}
+                                        <a href="#0" class="btn btn-sm btn-success" data-toggle="modal" data-target="#delivery{{y.booking_id}}"><i class="fa fa-fw fa-reply"></i> Delivery Date</a>
+                                       {% endif %}
+                                       
+                                       &nbsp; &nbsp;<a href="#0" class="btn btn-sm btn-danger"><i class="feather-trash"></i> Cancel</a>
                                     </div>
-                                    <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Rate</span> <span class="bg-warning px-2 py-1 rounded ml-1"> 8.5 </span></p>
+                                    <!-- <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Rate</span> <span class="bg-warning px-2 py-1 rounded ml-1"> 8.5 </span></p> -->
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <div class="card mb-4 order-list">
-                           <div class="gold-members p-4">
-                              <a href="#">
-                              </a>
-                              <div class="media">
-                                 <a href="#">
-                                 <img class="mr-4" src="img/4.jpg" alt="Generic placeholder image">
-                                 </a>
-                                 <div class="media-body">
-                                    <a href="#">
-                                    <span class="float-right text-success">Mon, Nov 09, 7:18 PM <i class="feather-clock text-success"></i></span>
-                                    </a>
-                                    <h6 class="mb-1">Da Alfredo</h6>
-                                    <p class="text-black mb-3"><i class="feather-user"></i> by M.Giuliani</p>
-                                    <p class="text-black-50">Ex omnis error aliquam quo, eu eos atqui accusam, ex nec sensibus erroribus principes. No pro albucius eloquentiam accommodare. Mei id illud posse persius. Nec eu dico lucilius delicata, qui propriae voluptaria eu.</p>
-                                    <hr>
-                                    <div class="float-right">
-                                       <a href="#0" class="btn btn-sm btn-success" data-toggle="modal" data-target="#edit_booking"><i class="fa fa-fw fa-reply"></i> Reply to this review</a>
-                                       <a href="#0" class="btn btn-sm btn-danger"><i class="feather-trash"></i> Cancel</a>
+               <!----------------------------------------->
+                        <div class="modal fade" id="delivery{{y.booking_id}}" tabindex="-1" role="dialog" aria-labelledby="edit_bookingLabel" aria-hidden="true">
+                           <form name="form" method="post" action="{% url 'storeadmin:delivery_date' x.booking_id 2 %}" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title" id="edit_bookingLabel">Delivery Date</h5>
+                                       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">×</span>
+                                       </button>
                                     </div>
-                                    <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Rate</span> <span class="bg-warning px-2 py-1 rounded ml-1"> 9.5 </span></p>
+                                    <div class="modal-body">
+                                       <div class="form-group">
+                                          <label>Delivery Date</label>
+                                          <input type="date" class="form-control" name="deliverydate">
+                                       </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button class="btn btn-primary" style="background-color: green" type="submit"> Submit </button>
+                                    </div>
                                  </div>
                               </div>
-                           </div>
-                        </div>
-                        <div class="card mb-4 order-list">
-                           <div class="gold-members p-4">
-                              <a href="#">
-                              </a>
-                              <div class="media">
-                                 <a href="#">
-                                 <img class="mr-4" src="img/5.jpg" alt="Generic placeholder image">
-                                 </a>
-                                 <div class="media-body">
-                                    <a href="#">
-                                    <span class="float-right text-success">Mon, Nov 09, 7:18 PM <i class="feather-clock text-success"></i></span>
-                                    </a>
-                                    <h6 class="mb-1">Sushi Gold</h6>
-                                    <p class="text-black mb-3"><i class="feather-user"></i> by G.Lukas</p>
-                                    <p class="text-black-50">Cum id mundi admodum menandri, eum errem aperiri at. Ut quas facilis qui, euismod admodum persequeris cum at. Summo aliquid eos ut, eum facilisi salutatus ne. Mazim option abhorreant ne his. Mel simul iisque albucius at, probatus indoctum efficiendi mei ei. Veniam percipit ei sea.</p>
-                                    <hr>
-                                    <div class="float-right">
-                                       <a href="#0" class="btn btn-sm btn-success" data-toggle="modal" data-target="#edit_booking"><i class="fa fa-fw fa-reply"></i> Reply to this review</a>
-                                       <a href="#0" class="btn btn-sm btn-danger"><i class="feather-trash"></i> Cancel</a>
-                                    </div>
-                                    <p class="mb-0 text-dark pt-2"><span class="text-dark font-weight-bold"> Rate</span> <span class="bg-warning px-2 py-1 rounded ml-1"> 9.5 </span></p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                           </form>
+                        </div>   
+                        {% endif %}    
+                        {% endfor %}
+
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
                         <nav aria-label="Page navigation example">
                            <ul class="pagination pagination-sm mb-4 justify-content-center">
                               <li class="page-item disabled">
@@ -101,4 +95,7 @@
                   </div>
                </div>
             </main>
-           {%endblock%}
+
+
+      
+            {%endblock%}
