@@ -3,7 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User,Group
-from storeadmin.models import StoreDetails,Booking,Appliance,Address
+from storeadmin.models import Booking,Appliance,StoreDetails,PickUp,Address,Estimate,Delivery
 from django.contrib import messages
 from .decorators import unauthenticated_user,allowed_users
 # Create your views here.
@@ -22,7 +22,18 @@ def loginpage(request):
 	
 @unauthenticated_user
 def signup(request):
-	return HttpResponse("ss")
+	if request.method == 'POST':
+		user = User(
+		email=request.POST['email'],
+		username=request.POST['username'],
+		)
+
+		user.set_password(request.POST['password'])
+		user.save()
+		group=Group.objects.get(name="user")
+		user.groups.add(group)
+		return HttpResponseRedirect('/user/signup')
+	return render(request,'user/signup.html')
 
 def logouts(request):
 	logout(request)
@@ -67,22 +78,56 @@ def booking(request,id):
 			user_id=1,
 			appliance_id=appliance_id,
 			address_id=address_id,
-			pickupdateconfirm='no'
+			pickupdateconfirm='no',
+			status_codes="order_placed"
 			)
 		booking.save()
 
-	return HttpResponse("success")
+	return redirect('/user/store')
 
 @login_required(login_url="/user/loginpage")
 def orders(request):
 	booking=Booking.objects.filter(user_id=1)
 	storedet=StoreDetails.objects.all()
 	appliancedet=Appliance.objects.all()
-	return render(request,'user/orders.html',{'booking':booking,'storedet':storedet,'appliancedet':appliancedet})
+
+	pickup_det=PickUp.objects.filter(user_id=1)
+	estimate_det=Estimate.objects.filter(user_id=1)
+	delivery_det=Delivery.objects.filter(user_id=1)
+	return render(request,'user/orders.html',{'booking':booking,'storedet':storedet,'appliancedet':appliancedet,'pickup_det':pickup_det,'estimate_det':estimate_det,'delivery_det':delivery_det})
+
+@login_required(login_url="/user/loginpage")
+def estimate_view(request,id):
+	estim=Estimate.objects.get(booking_id=id)
+	storedet=StoreDetails.objects.get(store_id=estim.store_id)
+	userdet=User.objects.get(id=estim.user_id)
+	book=Booking.objects.get(booking_id=estim.booking_id)
+	appliancedet=Appliance.objects.get(appliance_id=book.appliance_id)
+	return render(request,'user/estimate_view.html',{'estim':estim,'storedet':storedet,'userdet':userdet,'appliancedet':appliancedet})
+
+@login_required(login_url="/user/loginpage")
+def estimate_confirm(request,id,cd):
+	if cd==1:
+		Booking.objects.filter(pk=id).update(status_codes='estimate_accept')
+		Estimate.objects.filter(booking_id=id).update(estimate_status='done')
+		return redirect('/user/orders')
+	else:
+		Booking.objects.filter(pk=id).update(status_codes='estimate_declined')
+		Estimate.objects.filter(booking_id=id).update(estimate_status='cancel')
+		return redirect('/user/orders')
 
 @login_required(login_url="/user/loginpage")
 def trackrepair(request,id):
 	booking=Booking.objects.get(pk=id)
 	storedet=StoreDetails.objects.get(store_id=booking.store_id)
 	appliancedet=Appliance.objects.get(appliance_id=booking.appliance_id)
-	return render(request,'user/trackrepair.html',{'booking':booking,'storedet':storedet,'appliancedet':appliancedet})
+	addressdet=Address.objects.get(pk=booking.address_id)
+	status=booking.status_codes
+	if status=="order_placed":
+		return render(request,'user/trackrepair.html',{'booking':booking,'storedet':storedet,'appliancedet':appliancedet,'addressdet':addressdet,'status':status})
+	elif status=="pickup_confirmed":
+		pickupdet=PickUp.objects.get(booking_id=id)
+		return render(request,'user/trackrepair.html',{'booking':booking,'storedet':storedet,'appliancedet':appliancedet,'addressdet':addressdet,'status':status,'pickupdate':pickupdet.pickup_date})
+	else:
+		deldet=Delivery.objects.get(booking_id=id)
+		return render(request,'user/trackrepair.html',{'booking':booking,'storedet':storedet,'appliancedet':appliancedet,'addressdet':addressdet,'status':status,'deldate':deldet.delivery_date})

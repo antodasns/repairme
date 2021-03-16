@@ -1,19 +1,21 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-   <!-- Mirrored from askbootstrap.com/preview/osahan-eat/theme-2/track-order.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Jan 2021 05:34:01 GMT -->
+   
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Askbootstrap">
       <meta name="author" content="Askbootstrap">
-      <title>Osahan Eat - Online Food Ordering Website HTML Template</title>
+      <title>Repair Me - Online Repair and maintanence</title>
       <link rel="icon" type="image/png" href="{%static 'img/favicon.png'%}">
       <link href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
       <link href="{%static 'vendor/fontawesome/css/all.min.css'%}" rel="stylesheet">
       <link href="{%static 'vendor/icofont/icofont.min.css'%}" rel="stylesheet">
       <link href="{%static 'vendor/select2/css/select2.min.css'%}" rel="stylesheet">
       <link href="{%static 'css/osahan.css'%}" rel="stylesheet">
+      <link rel="stylesheet" href="{%static 'vendor/owl-carousel/owl.carousel.css'%}">
+      <link rel="stylesheet" href="{%static 'vendor/owl-carousel/owl.theme.css'%}">
    </head>
    <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light osahan-nav shadow-sm">
@@ -27,7 +29,7 @@
                   <li class="nav-item ">
                      <a class="nav-link" href="{% url 'user:home'%}">Home <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item active">
+                  <li class="nav-item active" >
                      <a class="nav-link" href="{% url 'user:store'%}">Stores <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item dropdown">
@@ -44,11 +46,12 @@
                   </li>
                   <li class="nav-item dropdown dropdown-cart">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <i class="fas fa-wrencht"></i> Service Status
+                        <i class="fas fa-wrencht"></i> Service Status
+                        <!-- <span class="badge badge-success">5</span> -->
                      </a>
                      <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
                         <div class="dropdown-cart-top-header p-4">
-                           <img class="img-fluid mr-3" alt="osahan" src="img/cart.jpg">
+                           <img class="img-fluid mr-3" alt="osahan" src="{%static 'img/cart.jpg">
                            <h6 class="mb-0">Gus's World Famous Chicken</h6>
                            <p class="text-secondary mb-0">310 S Front St, Memphis, USA</p>
                            <small><a class="text-primary font-weight-bold" href="#">View Full Menu</a></small>
@@ -73,105 +76,63 @@
             </div>
          </div>
       </nav>
-      <section class="section bg-white osahan-track-order-page position-relative">
-         <iframe class="position-absolute" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13696.650704896498!2d75.82434255!3d30.8821099!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1555184720550!5m2!1sen!2sin" width="100%" height="676" frameborder="0" style="border:0" allowfullscreen></iframe>
-         <div class="container pt-5 pb-5">
-            <div class="row d-flex align-items-center">
-               <div class="col-md-6 text-center pb-4">
-                  <div class="osahan-point mx-auto"></div>
-               </div>
-               <div class="col-md-6">
-                  <div class="bg-white p-4 shadow-lg mb-2">
-                     <div class="mb-2"><small>Order #{{booking.booking_id}}<a class="float-right font-weight-bold" href="#"><i class="icofont-headphone-alt"></i> HELP</a></small></div>
-                     <h6 class="mb-1 mt-1"><a href="detail.html" class="text-black">{{storedet.store_name}}
-                        </a>
-                     </h6>
-                     <!-- <p class="text-gray mb-0"><i class="icofont-clock-time"></i> 04:19 PM | 8 Items | $314</p> -->
-                  </div>
-                  <div class="bg-white p-4 shadow-lg">
-                     <div class="osahan-track-order-detail po">
-                        <h5 class="mt-0 mb-3">Order Details</h5>
-                        <div class="row">
-                           <div class="col-md-5">
-                              <small>Store Detail</small>
-                              <h6 class="mb-1 mt-1"><a href="detail.html" class="text-black"><i class="icofont-food-cart"></i> {{storedet.store_name}}
-                                 </a>
-                              </h6>
-                              <p class="text-gray mb-5">{{storedet.store_address}}</p>
-                              <small>Customer Detail</small>
-                              <h6 class="mb-1 mt-1"><span class="text-black"><i class="icofont-map-pins"></i> {{addressdet.name}}
-                                 </span>
-                              </h6>
-                              <p class="text-gray mb-0"><b>Address: </b>{{addressdet.address}}</p>
+      <section class="breadcrumb-osahan pt-5 pb-5 bg-dark position-relative text-center">
+         <h1 class="text-white">Estimate</h1>
+         <h6 class="text-white-50">Order #{{estim.booking_id}}</h6>
+      </section>
+      <section class="section pt-5 pb-5">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8 mx-auto">
+                  <div class="p-5 osahan-invoice bg-white shadow-sm">
+                     <div class="row mb-5 pb-3 ">
+                        <div class="col-md-8 col-10">
+                           <h3 class="mt-0">Thanks for choosing <strong class="text-secondary">{{storedet.store_name}}</strong>, {{userdet.username}} ! Here are your repair estimates: </h3>
+                        </div>
+                        
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <p class="mb-1 text-black">Order No: <strong>#{{estim.booking_id}}</strong></p>
+                           
+                        </div>
+                        <div class="col-md-6">
+                           <p class="mb-1 text-black">Picked From:</p>
+                           <p class="mb-1 text-primary"><strong>{{userdet.username}}</strong></p>
+                           
+                        </div>
+                     </div>
+                     <div class="row mt-5">
+                        <div class="col-md-12">
+                           
+                           <h6 class="mb-1 text-black"><strong>Complaints:</strong></h6>
+                           <p class="mb-1">{{estim.complaints}}</p>
 
-                              <p class="text-gray mb-0"><b>Landmark: </b>{{addressdet.landmark}}</p>
-                              <p class="text-gray mb-0"><b>Phone: </b>{{addressdet.phone}}</p>
-                           </div>
-                           <div class="col-md-7">
-                              <!-- <div class="mb-2"><small><i class="icofont-list"></i> 5 ITEMS</small></div> -->
-                              <small>APPLIANCE</small>
-                              <h6 class="mb-1 mt-1"><a href="#" class="text-black"><i class="icofont-repair"></i> {{appliancedet.appliance_name}}
-                                 </a>
-                              </h6>
-                              <p class="text-gray mb-5">{{appliancedet.appliance_brand}}</p>
-                             
-                              <hr>
-                              <p class="mb-0 font-weight-bold text-black">TOTAL BILL <span class="float-right text-secondary">$209</span></p>
-                              <p class="mb-0 text-info"><small>Paid via Credit/Debit card
-                                 <span class="float-right text-danger">$620 OFF</span></small>
-                              </p>
-                           </div>
+                           
+                           <h6 class="mb-1 text-black"><strong>Parts to be replaced</strong></h6>
+                           <p class="mb-1">{{estim.parts}}</p>
+                           
                         </div>
                      </div>
-                  </div>
-                  <div class="bg-white p-4 shadow-lg mt-2">
-                     {% if status == "order_placed" %}
-                     <div class="row text-center">
-                        <div class="col">
-                           <i class="icofont-tasks icofont-3x text-info"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Order Received</p>
-                           <small class="text-info mb-0">NOW</small>
+
+                     <div class="row">
+                        <div class="col-md-12">
+                           <center><p class="mb-1 text-success" style="font-size: 20px"><strong>Grand Total: {{estim.estimate_price}} &#8377;</strong></p></center>
                         </div>
                      </div>
-                     {% endif %}
-                     {% if status == "pickup_confirmed" %}
-                     <div class="row text-center">
-                        <div class="col">
-                           <i class="icofont-tasks icofont-3x text-info"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Order Received</p>
-                           <!-- <small class="text-info mb-0">NOW</small> -->
+
+                     <div class="row" style="margin: 20px">
+                        <div class="col-md-6">
+                           <center>
+                           <a class="btn btn-lg btn-success" href="{% url 'user:estimate_confirm' estim.booking_id 1 %}"><i class="icofont-refresh"></i> Accept</a>
+                        </center>
                         </div>
-                        <div class="col">
-                           <i class="icofont-check-circled icofont-3x text-success"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Order Confirmed</p>
-                           <!-- <small class="text-success mb-0">NEXT</small> -->
-                        </div>
-                        <div class="col">
-                           <i class="icofont-delivery-time icofont-3x text-primary"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Order Pick Up</p>
-                           <small class="text-primary mb-0">{{pickupdate}}</small>
+                        <div class="col-md-6">
+                           <center>
+                           <a class="btn btn-lg btn-primary" href="{% url 'user:estimate_confirm' estim.booking_id 2 %}"><i class="icofont-refresh"></i> Decline</a>
+                        </center>
                         </div>
                      </div>
-                     {% endif %}
-                     {% if status == "deliverysoon" %}
-                     <div class="row text-center">
-                        <div class="col">
-                           <i class="icofont-tasks icofont-3x text-info"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Order Received</p>
-                           <!-- <small class="text-info mb-0">NOW</small> -->
-                        </div>
-                        <div class="col">
-                           <i class="icofont-check-circled icofont-3x text-success"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Order Confirmed</p>
-                           <!-- <small class="text-success mb-0">NEXT</small> -->
-                        </div>
-                        <div class="col">
-                           <i class="icofont-delivery-time icofont-3x text-primary"></i>
-                           <p class="mt-1 font-weight-bold text-dark mb-0">Delivery On</p>
-                           <small class="text-primary mb-0">{{deldate}}</small>
-                        </div>
-                     </div>
-                     {% endif %}
                   </div>
                </div>
             </div>
@@ -246,11 +207,13 @@
             </div>
          </div>
       </section>
-      <script src="{%static 'vendor/jquery/jquery-3.3.1.slim.min.js'%}" type="80f86d59ac5d0c4e58551402-text/javascript"></script>
-      <script src="{%static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}" type="80f86d59ac5d0c4e58551402-text/javascript"></script>
-      <script src="{%static 'vendor/select2/js/select2.min.js'%}" type="80f86d59ac5d0c4e58551402-text/javascript"></script>
-      <script src="{%static 'js/custom.js'%}" type="80f86d59ac5d0c4e58551402-text/javascript"></script>
-      <script src="{%static 'cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="80f86d59ac5d0c4e58551402-|49" defer=""></script>
+     
+      <script src="{%static 'vendor/jquery/jquery-3.3.1.slim.min.js'%}" type="bdea8ebcb587a45b6d9bb6c9-text/javascript"></script>
+      <script src="{%static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}" type="bdea8ebcb587a45b6d9bb6c9-text/javascript"></script>
+      <script src="{%static 'vendor/select2/js/select2.min.js'%}" type="bdea8ebcb587a45b6d9bb6c9-text/javascript"></script>
+      <script src="{%static 'vendor/owl-carousel/owl.carousel.js'%}" type="bdea8ebcb587a45b6d9bb6c9-text/javascript"></script>
+      <script src="{%static 'js/custom.js'%}" type="bdea8ebcb587a45b6d9bb6c9-text/javascript"></script>
+      <script src="{%static '/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="bdea8ebcb587a45b6d9bb6c9-|49" defer=""></script></script>
    </body>
-   <!-- Mirrored from askbootstrap.com/preview/osahan-eat/theme-2/track-order.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Jan 2021 05:34:01 GMT -->
+   <!-- Mirrored from askbootstrap.com/preview/osahan-eat/theme-2/invoice.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Jan 2021 05:34:01 GMT -->
 </html>

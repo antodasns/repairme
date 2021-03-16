@@ -22,6 +22,7 @@ class Booking(models.Model):
 	appliance_id=models.CharField(max_length=20)
 	address_id=models.CharField(max_length=20)
 	pickupdateconfirm=models.CharField(max_length=20)
+	status_codes=models.CharField(max_length=20)
 	class Meta:
 		verbose_name_plural="Booking"
 	def __str__(self):

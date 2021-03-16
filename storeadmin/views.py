@@ -24,6 +24,7 @@ def pickup_date(request,id):
 			)
 		picking.save()
 		Booking.objects.filter(pk=id).update(pickupdateconfirm='yes')
+		Booking.objects.filter(pk=id).update(status_codes='pickup_confirmed')
 	return redirect('/storeadmin/bookings')
 
 def pickups(request):
@@ -36,6 +37,8 @@ def pickups(request):
 def pickup_confirm(request,id):
 	if request.method == 'POST':
 		PickUp.objects.filter(pk=id).update(pickup_status='done')
+		book_id=PickUp.objects.get(pk=id)
+		Booking.objects.filter(pk=book_id.booking_id).update(status_codes='pickup_success')
 	return redirect('/storeadmin/pickups')
 
 def estimate(request):
@@ -58,6 +61,7 @@ def estimate_save(request,id):
 			)
 		estimate.save()
 		PickUp.objects.filter(booking_id=id).update(estimategivenconfirm='done')
+		Booking.objects.filter(pk=id).update(status_codes='estimate_update')
 	return redirect('/storeadmin/estimate')
 
 def estimate_status(request):
@@ -91,6 +95,7 @@ def delivery_date(request,id,diff):
 				)
 			delivery.save()
 			Estimate.objects.filter(booking_id=id).update(delivery_status='pending')
+			Booking.objects.filter(pk=id).update(status_codes='deliverysoon')
 		return redirect('/storeadmin/declined_delivery')
 	else:
 		if request.method == 'POST':
@@ -103,6 +108,7 @@ def delivery_date(request,id,diff):
 				)
 			delivery.save()
 			Estimate.objects.filter(booking_id=id).update(delivery_status='pending')
+			Booking.objects.filter(pk=id).update(status_codes='deliverysoon')
 		return redirect('/storeadmin/repaired_delivery')
 
 def delivery_status(request):
@@ -124,6 +130,7 @@ def delivery_confirm(request,id):
 		Delivery.objects.filter(pk=id).update(delivery_status='delivered')
 		Del=Delivery.objects.get(pk=id)
 		Estimate.objects.filter(booking_id=Del.booking_id).update(delivery_status='delivered')
+		Booking.objects.filter(pk=id).update(status_codes='delivered')
 	return redirect('/storeadmin/delivery')
 
 def payment(request):

@@ -1,0 +1,66 @@
+<!doctype html>
+ {% load static %}
+<html lang="en">
+   <!-- Mirrored from askbootstrap.com/preview/osahan-eat/theme-2/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Jan 2021 05:34:01 GMT -->
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Askbootstrap">
+      <meta name="author" content="Askbootstrap">
+      <title>Osahan Eat - Online Food Ordering Website HTML Template</title>
+      <link rel="icon" type="image/png" href="{%static 'img/favicon.png'%}">
+      <link href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+      <link href="{%static 'vendor/fontawesome/css/all.min.css'%}" rel="stylesheet">
+      <link href="{%static 'vendor/icofont/icofont.min.css'%}" rel="stylesheet">
+      <link href="{%static 'vendor/select2/css/select2.min.css'%}" rel="stylesheet">
+      <link href="{%static 'css/osahan.css'%}" rel="stylesheet">
+   </head>
+   <body class="bg-white">
+      <div class="container-fluid">
+         <div class="row no-gutter">
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="col-md-8 col-lg-6">
+               <div class="login d-flex align-items-center py-5">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+                           <h3 class="login-heading mb-4">New Buddy!</h3>
+                           <form name="form" method="post" action="{% url 'user:signup' %}" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="form-label-group">
+                                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email">
+                                 <label for="inputEmail">Email address</label>
+                              </div>
+                              <div class="form-label-group">
+                                 <input type="text" id="inputMobile" class="form-control" placeholder="Mobile" name="phone">
+                                 <label for="inputMobile">Mobile</label>
+                              </div>
+                              <div class="form-label-group">
+                                 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username">
+                                 <label for="inputUsername">Username</label>
+                              </div>
+                              <div class="form-label-group">
+                                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+                                 <label for="inputPassword">Password</label>
+                              </div>
+                              <div class="form-label-group">
+                                 <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password">
+                                 <label for="inputConfirmPassword">Repeat Password</label>
+                              </div>
+                              <button class="btn pl-1 pr-1 btn-lg btn-google font-weight-normal text-white btn-block text-uppercase" style="background-color: green" type="submit"> Submit </button>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+       <script src="{%static 'vendor/jquery/jquery-3.3.1.slim.min.js'%}" type="611e9589ad77be3b08c1f9a0-text/javascript"></script>
+      <script src="{%static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}" type="611e9589ad77be3b08c1f9a0-text/javascript"></script>
+      <script src="{%static 'vendor/select2/js/select2.min.js'%}" type="611e9589ad77be3b08c1f9a0-text/javascript"></script>
+      <script src="{%static 'js/custom.js'%}" type="611e9589ad77be3b08c1f9a0-text/javascript"></script>
+      <script src="{%static 'cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="611e9589ad77be3b08c1f9a0-|49" defer=""></script>
+   </body>
+   <!-- Mirrored from askbootstrap.com/preview/osahan-eat/theme-2/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Jan 2021 05:34:01 GMT -->
+</html>
